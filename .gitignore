@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+.env*
+/data/raw/
+__pycache__/
+.ipynb_checkpoints/
+
+.vercel
+.env*

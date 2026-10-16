@@ -1,0 +1,396 @@
+{
+ "sales": 105986,
+ "total_value": 197825027627,
+ "median_price": 1315000,
+ "median_ppsf": 1728,
+ "offplan_share": 0.758,
+ "areas": 122,
+ "by_type": {
+  "Flat": {
+   "sales": 96970,
+   "median_price": 1230068,
+   "median_ppsf": 1722
+  },
+  "Villa": {
+   "sales": 9016,
+   "median_price": 3416640,
+   "median_ppsf": 1772
+  }
+ },
+ "bedrooms": [
+  {
+   "type": "Flat",
+   "bedrooms": 0,
+   "sales": 30313,
+   "median_price": 677999
+  },
+  {
+   "type": "Flat",
+   "bedrooms": 1,
+   "sales": 39357,
+   "median_price": 1251840
+  },
+  {
+   "type": "Flat",
+   "bedrooms": 2,
+   "sales": 21790,
+   "median_price": 2208000
+  },
+  {
+   "type": "Flat",
+   "bedrooms": 3,
+   "sales": 5040,
+   "median_price": 3800000
+  },
+  {
+   "type": "Flat",
+   "bedrooms": 4,
+   "sales": 455,
+   "median_price": 8025213
+  },
+  {
+   "type": "Villa",
+   "bedrooms": 2,
+   "sales": 414,
+   "median_price": 2350000
+  },
+  {
+   "type": "Villa",
+   "bedrooms": 3,
+   "sales": 2452,
+   "median_price": 3155000
+  },
+  {
+   "type": "Villa",
+   "bedrooms": 4,
+   "sales": 4469,
+   "median_price": 2982000
+  },
+  {
+   "type": "Villa",
+   "bedrooms": 5,
+   "sales": 1641,
+   "median_price": 4523400
+  }
+ ],
+ "monthly": [
+  {
+   "month": "2026-01",
+   "sales": 13934,
+   "value": 30280518147,
+   "flat_sales": 11882,
+   "flat_ppsf": 1782,
+   "villa_sales": 2052,
+   "villa_ppsf": 1822
+  },
+  {
+   "month": "2026-02",
+   "sales": 13851,
+   "value": 28995205560,
+   "flat_sales": 12356,
+   "flat_ppsf": 1741,
+   "villa_sales": 1495,
+   "villa_ppsf": 1822
+  },
+  {
+   "month": "2026-03",
+   "sales": 11423,
+   "value": 22823660973,
+   "flat_sales": 10228,
+   "flat_ppsf": 1747,
+   "villa_sales": 1195,
+   "villa_ppsf": 1749
+  },
+  {
+   "month": "2026-04",
+   "sales": 11652,
+   "value": 25290989767,
+   "flat_sales": 10712,
+   "flat_ppsf": 1848,
+   "villa_sales": 940,
+   "villa_ppsf": 1871
+  },
+  {
+   "month": "2026-05",
+   "sales": 8335,
+   "value": 14388182521,
+   "flat_sales": 7873,
+   "flat_ppsf": 1671,
+   "villa_sales": 462,
+   "villa_ppsf": 1776
+  },
+  {
+   "month": "2026-06",
+   "sales": 11441,
+   "value": 18038666798,
+   "flat_sales": 10812,
+   "flat_ppsf": 1712,
+   "villa_sales": 629,
+   "villa_ppsf": 1621
+  },
+  {
+   "month": "2026-07",
+   "sales": 11708,
+   "value": 17932012709,
+   "flat_sales": 11068,
+   "flat_ppsf": 1711,
+   "villa_sales": 640,
+   "villa_ppsf": 1564
+  },
+  {
+   "month": "2026-08",
+   "sales": 9921,
+   "value": 16133933620,
+   "flat_sales": 9325,
+   "flat_ppsf": 1708,
+   "villa_sales": 596,
+   "villa_ppsf": 1603
+  },
+  {
+   "month": "2026-09",
+   "sales": 9070,
+   "value": 15656611337,
+   "flat_sales": 8445,
+   "flat_ppsf": 1684,
+   "villa_sales": 625,
+   "villa_ppsf": 1604
+  },
+  {
+   "month": "2026-10",
+   "sales": 4651,
+   "value": 8285246196,
+   "flat_sales": 4269,
+   "flat_ppsf": 1671,
+   "villa_sales": 382,
+   "villa_ppsf": 1666
+  }
+ ],
+ "top": {
+  "busiest": [
+   {
+    "slug": "madinat-al-mataar",
+    "name": "Madinat Al Mataar",
+    "sales": 12227
+   },
+   {
+    "slug": "jumeirah-village-circle",
+    "name": "Jumeirah Village Circle",
+    "sales": 7620
+   },
+   {
+    "slug": "dubai-land-residence-complex",
+    "name": "Dubai Land Residence Complex",
+    "sales": 4888
+   },
+   {
+    "slug": "majan",
+    "name": "Majan",
+    "sales": 4141
+   },
+   {
+    "slug": "business-bay",
+    "name": "Business Bay",
+    "sales": 3618
+   },
+   {
+    "slug": "al-yelayiss-1",
+    "name": "Al Yelayiss 1",
+    "sales": 3497
+   },
+   {
+    "slug": "palm-deira",
+    "name": "Palm Deira",
+    "sales": 3354
+   },
+   {
+    "slug": "city-of-arabia",
+    "name": "City of Arabia",
+    "sales": 2604
+   },
+   {
+    "slug": "arjan",
+    "name": "Arjan",
+    "sales": 2536
+   },
+   {
+    "slug": "dubai-production-city",
+    "name": "Dubai Production City",
+    "sales": 2381
+   }
+  ],
+  "expensive": [
+   {
+    "slug": "business-park",
+    "name": "Business Park",
+    "median_ppsf": 3547,
+    "sales": 1681
+   },
+   {
+    "slug": "palm-jabal-ali",
+    "name": "Palm Jabal Ali",
+    "median_ppsf": 3517,
+    "sales": 332
+   },
+   {
+    "slug": "al-wasl",
+    "name": "Al Wasl",
+    "median_ppsf": 3327,
+    "sales": 736
+   },
+   {
+    "slug": "dubai-maritime-city",
+    "name": "Dubai Maritime City",
+    "median_ppsf": 3242,
+    "sales": 999
+   },
+   {
+    "slug": "zaabeel-second",
+    "name": "Zaabeel Second",
+    "median_ppsf": 3154,
+    "sales": 674
+   },
+   {
+    "slug": "madinat-dubai-almelaheyah",
+    "name": "Madinat Dubai Almelaheyah",
+    "median_ppsf": 2902,
+    "sales": 723
+   },
+   {
+    "slug": "bukadra",
+    "name": "Bukadra",
+    "median_ppsf": 2900,
+    "sales": 850
+   },
+   {
+    "slug": "dmcc-ez2",
+    "name": "DMCC-EZ2",
+    "median_ppsf": 2900,
+    "sales": 444
+   },
+   {
+    "slug": "palm-jumeirah",
+    "name": "Palm Jumeirah",
+    "median_ppsf": 2881,
+    "sales": 524
+   },
+   {
+    "slug": "palm-deira",
+    "name": "Palm Deira",
+    "median_ppsf": 2801,
+    "sales": 3354
+   }
+  ],
+  "affordable": [
+   {
+    "slug": "international-city-ph-1",
+    "name": "International City Ph 1",
+    "median_ppsf": 723,
+    "sales": 1030
+   },
+   {
+    "slug": "discovery-gardens",
+    "name": "Discovery Gardens",
+    "median_ppsf": 961,
+    "sales": 797
+   },
+   {
+    "slug": "liwan",
+    "name": "Liwan",
+    "median_ppsf": 1106,
+    "sales": 569
+   },
+   {
+    "slug": "international-city-ph-2-3",
+    "name": "International City Ph 2 & 3",
+    "median_ppsf": 1204,
+    "sales": 1060
+   },
+   {
+    "slug": "dubai-south",
+    "name": "Dubai South",
+    "median_ppsf": 1252,
+    "sales": 1325
+   },
+   {
+    "slug": "dubai-sports-city",
+    "name": "Dubai Sports City",
+    "median_ppsf": 1297,
+    "sales": 1880
+   },
+   {
+    "slug": "town-square",
+    "name": "Town Square",
+    "median_ppsf": 1324,
+    "sales": 495
+   },
+   {
+    "slug": "dubai-production-city",
+    "name": "Dubai Production City",
+    "median_ppsf": 1345,
+    "sales": 2381
+   },
+   {
+    "slug": "silicon-oasis",
+    "name": "Silicon Oasis",
+    "median_ppsf": 1350,
+    "sales": 649
+   },
+   {
+    "slug": "living-legends",
+    "name": "Living Legends",
+    "median_ppsf": 1350,
+    "sales": 383
+   }
+  ],
+  "rising": [
+   {
+    "slug": "down-town-jabal-ali",
+    "name": "Down Town Jabal Ali",
+    "ppsf_change": 0.272,
+    "sales": 940
+   },
+   {
+    "slug": "al-yufrah-1",
+    "name": "Al Yufrah 1",
+    "ppsf_change": 0.269,
+    "sales": 675
+   },
+   {
+    "slug": "living-legends",
+    "name": "Living Legends",
+    "ppsf_change": 0.231,
+    "sales": 383
+   },
+   {
+    "slug": "damac-hills",
+    "name": "Damac Hills",
+    "ppsf_change": 0.163,
+    "sales": 933
+   },
+   {
+    "slug": "jabal-ali-first",
+    "name": "Jabal Ali First",
+    "ppsf_change": 0.112,
+    "sales": 2365
+   },
+   {
+    "slug": "international-city-ph-2-3",
+    "name": "International City Ph 2 & 3",
+    "ppsf_change": 0.103,
+    "sales": 1060
+   },
+   {
+    "slug": "madinat-al-mataar",
+    "name": "Madinat Al Mataar",
+    "ppsf_change": 0.098,
+    "sales": 12227
+   },
+   {
+    "slug": "horizon",
+    "name": "Horizon",
+    "ppsf_change": 0.097,
+    "sales": 969
+   }
+  ]
+ }
+}

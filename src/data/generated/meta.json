@@ -1,0 +1,61 @@
+{
+ "period": {
+  "from": "2026-01-01",
+  "to": "2026-10-15"
+ },
+ "cleaning": {
+  "sales": [
+   {
+    "step": "All sales transactions",
+    "rows": 129748
+   },
+   {
+    "step": "Residential flats and villas",
+    "rows": 111030
+   },
+   {
+    "step": "Real sale procedures",
+    "rows": 107807
+   },
+   {
+    "step": "Bedrooms known",
+    "rows": 107778
+   },
+   {
+    "step": "Realistic size and price",
+    "rows": 107058
+   },
+   {
+    "step": "Without extreme price per sq ft",
+    "rows": 105986
+   }
+  ]
+ },
+ "model": {
+  "train_months": [
+   "2026-01",
+   "2026-08"
+  ],
+  "test_months": [
+   "2026-09",
+   "2026-10"
+  ],
+  "train_sales": 92265,
+  "test_sales": 13721,
+  "model": {
+   "median_error": 0.0827,
+   "within_10": 0.567,
+   "within_20": 0.827
+  },
+  "baseline": {
+   "median_error": 0.1115,
+   "within_10": 0.461,
+   "within_20": 0.708
+  },
+  "band": {
+   "low": 0.8166237293982349,
+   "high": 1.182565090117346
+  }
+ },
+ "source": "Dubai Land Department, Real Estate Data (open data)"
+}
