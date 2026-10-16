@@ -93,3 +93,30 @@ export interface Meta {
   };
   source: string;
 }
+
+export interface ProjectValue {
+  project: string;
+  area: string;
+  type: PropertyType;
+  sales: number;
+  premium: number;
+  median_ppsf: number;
+  median_price: number;
+  offplan_share: number;
+}
+
+export interface TypeModel {
+  offplan_premium: number;
+  size_elasticity: number;
+  ppsf_change_10pct_bigger: number;
+  index: { month: string; like_for_like: number; raw_median: number }[];
+  sales: number;
+}
+
+export interface Insights {
+  value: { projects_scored: number; within_10: number; below: ProjectValue[]; above: ProjectValue[]; cv_median_error: number };
+  models: Record<PropertyType, TypeModel>;
+  offplan_areas: { area: string; premium: number; compared: number; sales: number }[];
+  bedrooms: { bedrooms: number; relative_ppsf: number; areas: number }[];
+  area_changes: { area: string; sales: number; raw_change: number; like_for_like: number }[];
+}

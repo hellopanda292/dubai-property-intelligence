@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, Bot, Calculator, Crown, Flame, PiggyBank, TrendingUp, Wallet } from "lucide-react";
+import { ArrowRight, Bot, Calculator, Crown, Flame, Lightbulb, PiggyBank, TrendingUp, Wallet } from "lucide-react";
 import { AreaSearch } from "@/components/AreaSearch";
 import { Lines, StackedBars } from "@/components/charts";
 import { RankCard } from "@/components/RankCard";
 import { Badge, ButtonLink, SectionTitle, Stat } from "@/components/ui";
-import { areaIndex, market, meta } from "@/lib/data";
+import { areaIndex, insights, market, meta } from "@/lib/data";
 import { aed, aedShort, bedroomLabel, dateLabel, monthLabel, num, pct, signedPct } from "@/lib/format";
 
 export default function HomePage() {
@@ -113,6 +113,23 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Insights teaser */}
+      <section className="container-app mt-14">
+        <Link href="/insights" className="card group flex flex-col gap-5 p-6 transition hover:-translate-y-0.5 sm:p-8 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <p className="eyebrow flex items-center gap-2"><Lightbulb className="h-3.5 w-3.5" aria-hidden="true" /> Insights</p>
+            <h2 className="mt-2 font-display text-[clamp(1.4rem,3vw,2rem)] font-bold leading-tight tracking-[-0.03em]">Are Dubai prices really falling?</h2>
+            <p className="mt-2 text-ink-soft">
+              The simple median says apartments are {signedPct(insights.models.Flat.index.at(-1)!.raw_median - 1)} since January. Comparing like with like, the
+              change is only {signedPct(insights.models.Flat.index.at(-1)!.like_for_like - 1)}. Read five questions answered with the data.
+            </p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-1.5 font-bold text-violet">
+            Read the insights <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </Link>
       </section>
 
       {/* Tools */}

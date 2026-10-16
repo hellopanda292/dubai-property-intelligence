@@ -8,6 +8,7 @@ import { Building2, Menu, X } from "lucide-react";
 const LINKS = [
   { href: "/", label: "Market" },
   { href: "/areas", label: "Areas" },
+  { href: "/insights", label: "Insights" },
   { href: "/estimate", label: "Price estimator" },
   { href: "/about", label: "Method" },
 ];

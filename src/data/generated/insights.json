@@ -1,0 +1,504 @@
+{
+ "value": {
+  "projects_scored": 702,
+  "within_10": 0.574,
+  "below": [
+   {
+    "project": "House of Well",
+    "area": "Palm Deira",
+    "type": "Flat",
+    "sales": 42,
+    "premium": -0.685,
+    "median_ppsf": 847,
+    "median_price": 741850,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Bhuvi Residence",
+    "area": "Madinat Al Mataar",
+    "type": "Flat",
+    "sales": 31,
+    "premium": -0.509,
+    "median_ppsf": 750,
+    "median_price": 367710,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Rome 3 by SD",
+    "area": "Wadi Al Safa 3",
+    "type": "Flat",
+    "sales": 54,
+    "premium": -0.499,
+    "median_ppsf": 782,
+    "median_price": 958034,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Seven City JLT",
+    "area": "Jumeirah Lakes Towers",
+    "type": "Flat",
+    "sales": 67,
+    "premium": -0.491,
+    "median_ppsf": 1225,
+    "median_price": 560000,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Al Khail Heights",
+    "area": "Al Khail Heights",
+    "type": "Flat",
+    "sales": 80,
+    "premium": -0.479,
+    "median_ppsf": 953,
+    "median_price": 877500,
+    "offplan_share": 0.0
+   },
+   {
+    "project": "Remraam",
+    "area": "Remraam",
+    "type": "Flat",
+    "sales": 147,
+    "premium": -0.426,
+    "median_ppsf": 940,
+    "median_price": 800000,
+    "offplan_share": 0.0
+   },
+   {
+    "project": "Bianca",
+    "area": "Wadi Al Safa 2",
+    "type": "Villa",
+    "sales": 40,
+    "premium": -0.42,
+    "median_ppsf": 1286,
+    "median_price": 1283500,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Waada - Cascada 2",
+    "area": "Madinat Al Mataar",
+    "type": "Flat",
+    "sales": 83,
+    "premium": -0.356,
+    "median_ppsf": 1138,
+    "median_price": 871000,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Damac City",
+    "area": "Dubai Water Canal",
+    "type": "Flat",
+    "sales": 44,
+    "premium": -0.353,
+    "median_ppsf": 2232,
+    "median_price": 2809555,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Qasr Sabah I , II ,iii",
+    "area": "Dubai Production City",
+    "type": "Flat",
+    "sales": 90,
+    "premium": -0.35,
+    "median_ppsf": 728,
+    "median_price": 449835,
+    "offplan_share": 0.0
+   }
+  ],
+  "above": [
+   {
+    "project": "Sobha Central",
+    "area": "Jabal Ali First",
+    "type": "Flat",
+    "sales": 592,
+    "premium": 1.026,
+    "median_ppsf": 3230,
+    "median_price": 2074805,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Port De La Mer - Le Soleil",
+    "area": "Jumeirah First",
+    "type": "Flat",
+    "sales": 31,
+    "premium": 0.875,
+    "median_ppsf": 3561,
+    "median_price": 4600000,
+    "offplan_share": 0.03
+   },
+   {
+    "project": "Lunaya",
+    "area": "Saih Shuaib 1",
+    "type": "Villa",
+    "sales": 425,
+    "premium": 0.861,
+    "median_ppsf": 2713,
+    "median_price": 6575000,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Hilton Residences Dubai Jumeirah Lakes Towers",
+    "area": "Jumeirah Lakes Towers",
+    "type": "Flat",
+    "sales": 65,
+    "premium": 0.834,
+    "median_ppsf": 3102,
+    "median_price": 1272921,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "Condor Golf Links 18",
+    "area": "Dubai Sports City",
+    "type": "Flat",
+    "sales": 42,
+    "premium": 0.753,
+    "median_ppsf": 1905,
+    "median_price": 882350,
+    "offplan_share": 0.02
+   },
+   {
+    "project": "Sobha SkyParks",
+    "area": "Business Bay",
+    "type": "Flat",
+    "sales": 83,
+    "premium": 0.674,
+    "median_ppsf": 4250,
+    "median_price": 3611164,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "UPSIDE Living",
+    "area": "Business Bay",
+    "type": "Flat",
+    "sales": 31,
+    "premium": 0.599,
+    "median_ppsf": 3185,
+    "median_price": 1642888,
+    "offplan_share": 0.0
+   },
+   {
+    "project": "Serenia Living",
+    "area": "Palm Jumeirah",
+    "type": "Flat",
+    "sales": 34,
+    "premium": 0.596,
+    "median_ppsf": 4511,
+    "median_price": 9975000,
+    "offplan_share": 0.32
+   },
+   {
+    "project": "Passo By Beyond",
+    "area": "Palm Jumeirah",
+    "type": "Flat",
+    "sales": 41,
+    "premium": 0.588,
+    "median_ppsf": 4952,
+    "median_price": 6552280,
+    "offplan_share": 1.0
+   },
+   {
+    "project": "113 Residences",
+    "area": "Sufouh Gardens",
+    "type": "Flat",
+    "sales": 49,
+    "premium": 0.584,
+    "median_ppsf": 2491,
+    "median_price": 2788192,
+    "offplan_share": 1.0
+   }
+  ],
+  "cv_median_error": 0.0987
+ },
+ "models": {
+  "Flat": {
+   "offplan_premium": 0.303,
+   "size_elasticity": -0.38,
+   "ppsf_change_10pct_bigger": -0.036,
+   "index": [
+    {
+     "month": "2026-01",
+     "like_for_like": 1.0,
+     "raw_median": 1.0
+    },
+    {
+     "month": "2026-02",
+     "like_for_like": 0.9993,
+     "raw_median": 0.9767
+    },
+    {
+     "month": "2026-03",
+     "like_for_like": 1.0113,
+     "raw_median": 0.9803
+    },
+    {
+     "month": "2026-04",
+     "like_for_like": 1.0227,
+     "raw_median": 1.0368
+    },
+    {
+     "month": "2026-05",
+     "like_for_like": 0.983,
+     "raw_median": 0.9375
+    },
+    {
+     "month": "2026-06",
+     "like_for_like": 0.9827,
+     "raw_median": 0.9605
+    },
+    {
+     "month": "2026-07",
+     "like_for_like": 0.9781,
+     "raw_median": 0.9602
+    },
+    {
+     "month": "2026-08",
+     "like_for_like": 0.9877,
+     "raw_median": 0.9581
+    },
+    {
+     "month": "2026-09",
+     "like_for_like": 0.9789,
+     "raw_median": 0.9449
+    },
+    {
+     "month": "2026-10",
+     "like_for_like": 0.9792,
+     "raw_median": 0.9372
+    }
+   ],
+   "sales": 96970
+  },
+  "Villa": {
+   "offplan_premium": -0.045,
+   "size_elasticity": -0.414,
+   "ppsf_change_10pct_bigger": -0.039,
+   "index": [
+    {
+     "month": "2026-01",
+     "like_for_like": 1.0,
+     "raw_median": 1.0
+    },
+    {
+     "month": "2026-02",
+     "like_for_like": 0.997,
+     "raw_median": 0.9999
+    },
+    {
+     "month": "2026-03",
+     "like_for_like": 0.9763,
+     "raw_median": 0.96
+    },
+    {
+     "month": "2026-04",
+     "like_for_like": 0.9773,
+     "raw_median": 1.027
+    },
+    {
+     "month": "2026-05",
+     "like_for_like": 0.9708,
+     "raw_median": 0.9749
+    },
+    {
+     "month": "2026-06",
+     "like_for_like": 0.9669,
+     "raw_median": 0.8895
+    },
+    {
+     "month": "2026-07",
+     "like_for_like": 0.9585,
+     "raw_median": 0.8587
+    },
+    {
+     "month": "2026-08",
+     "like_for_like": 0.9661,
+     "raw_median": 0.8797
+    },
+    {
+     "month": "2026-09",
+     "like_for_like": 0.9686,
+     "raw_median": 0.8804
+    },
+    {
+     "month": "2026-10",
+     "like_for_like": 0.9901,
+     "raw_median": 0.9144
+    }
+   ],
+   "sales": 9016
+  }
+ },
+ "offplan_areas": [
+  {
+   "area": "Madinat Al Mataar",
+   "premium": 0.003,
+   "compared": 84,
+   "sales": 12227
+  },
+  {
+   "area": "Jumeirah Village Circle",
+   "premium": 0.199,
+   "compared": 3051,
+   "sales": 7620
+  },
+  {
+   "area": "Dubai Land Residence Complex",
+   "premium": 0.722,
+   "compared": 425,
+   "sales": 4888
+  },
+  {
+   "area": "Majan",
+   "premium": 0.644,
+   "compared": 665,
+   "sales": 4141
+  },
+  {
+   "area": "Business Bay",
+   "premium": 0.46,
+   "compared": 1533,
+   "sales": 3618
+  },
+  {
+   "area": "Arjan",
+   "premium": 0.203,
+   "compared": 895,
+   "sales": 2536
+  },
+  {
+   "area": "Dubai Production City",
+   "premium": 0.439,
+   "compared": 570,
+   "sales": 2381
+  },
+  {
+   "area": "Jumeirah Village Triangle",
+   "premium": 0.309,
+   "compared": 300,
+   "sales": 2145
+  },
+  {
+   "area": "Dubai Sports City",
+   "premium": 0.533,
+   "compared": 753,
+   "sales": 1880
+  },
+  {
+   "area": "Motor City",
+   "premium": 0.719,
+   "compared": 385,
+   "sales": 1589
+  },
+  {
+   "area": "Dubai Marina",
+   "premium": 0.388,
+   "compared": 100,
+   "sales": 1379
+  },
+  {
+   "area": "Burj Khalifa",
+   "premium": 0.361,
+   "compared": 363,
+   "sales": 1360
+  }
+ ],
+ "bedrooms": [
+  {
+   "bedrooms": 0,
+   "relative_ppsf": 1.13,
+   "areas": 53
+  },
+  {
+   "bedrooms": 1,
+   "relative_ppsf": 1.0,
+   "areas": 92
+  },
+  {
+   "bedrooms": 2,
+   "relative_ppsf": 0.983,
+   "areas": 88
+  },
+  {
+   "bedrooms": 3,
+   "relative_ppsf": 1.001,
+   "areas": 53
+  },
+  {
+   "bedrooms": 4,
+   "relative_ppsf": 0.864,
+   "areas": 7
+  }
+ ],
+ "area_changes": [
+  {
+   "area": "Madinat Al Mataar",
+   "sales": 7108,
+   "raw_change": 0.098,
+   "like_for_like": 0.03
+  },
+  {
+   "area": "Jumeirah Village Circle",
+   "sales": 5237,
+   "raw_change": -0.051,
+   "like_for_like": -0.043
+  },
+  {
+   "area": "Dubai Land Residence Complex",
+   "sales": 3220,
+   "raw_change": -0.055,
+   "like_for_like": -0.013
+  },
+  {
+   "area": "Al Yelayiss 1",
+   "sales": 3006,
+   "raw_change": 0.018,
+   "like_for_like": -0.011
+  },
+  {
+   "area": "Majan",
+   "sales": 2601,
+   "raw_change": -0.041,
+   "like_for_like": -0.026
+  },
+  {
+   "area": "Business Bay",
+   "sales": 2575,
+   "raw_change": -0.207,
+   "like_for_like": -0.112
+  },
+  {
+   "area": "Palm Deira",
+   "sales": 2047,
+   "raw_change": -0.105,
+   "like_for_like": -0.031
+  },
+  {
+   "area": "City of Arabia",
+   "sales": 1833,
+   "raw_change": 0.036,
+   "like_for_like": 0.048
+  },
+  {
+   "area": "Dubai Production City",
+   "sales": 1741,
+   "raw_change": 0.048,
+   "like_for_like": -0.008
+  },
+  {
+   "area": "Arjan",
+   "sales": 1602,
+   "raw_change": -0.018,
+   "like_for_like": -0.01
+  },
+  {
+   "area": "Jumeirah Village Triangle",
+   "sales": 1391,
+   "raw_change": -0.053,
+   "like_for_like": -0.003
+  },
+  {
+   "area": "Al Khairan First",
+   "sales": 1282,
+   "raw_change": 0.0,
+   "like_for_like": 0.025
+  }
+ ]
+}

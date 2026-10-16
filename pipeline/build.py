@@ -18,6 +18,8 @@ from sklearn.ensemble import HistGradientBoostingRegressor
 
 sys.path.insert(0, str(Path(__file__).parent))
 from clean import clean_sales, load_csvs, slugify  # noqa: E402
+from model import FEATURES, PARAMS, area_encoding, features  # noqa: E402
+from insights import build_insights  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
@@ -27,8 +29,6 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 MIN_AREA_SALES = 20      # areas with fewer sales are not given their own page
 MIN_GROUP_SALES = 5      # smallest group shown in a bedroom table
-SMOOTH = 30              # target-encoding smoothing (see notebook explanation in README)
-FEATURES = ["area_value", "area_type_value", "area_sales_log", "is_villa", "offplan", "bedrooms", "log_sqft"]
 
 
 def r(x, nd=0):
@@ -128,32 +128,6 @@ def build_market(sales: pd.DataFrame, areas: list):
 # Price model (same approach as the Dubai Property Price Estimator project)
 # ----------------------------------------------------------------------------
 
-def area_encoding(train: pd.DataFrame):
-    y = np.log(train.ppsf)
-    t = train.assign(y=y)
-    global_mean = y.mean()
-    g = t.groupby("area").y.agg(["mean", "count"])
-    area_value = (g["mean"] * g["count"] + global_mean * SMOOTH) / (g["count"] + SMOOTH)
-    type_mean = t.groupby("type").y.mean()
-    gt = t.groupby(["area", "type"]).y.agg(["mean", "count"])
-    prior = np.array([type_mean[k] for k in gt.index.get_level_values("type")])
-    area_type_value = (gt["mean"] * gt["count"] + prior * SMOOTH) / (gt["count"] + SMOOTH)
-    return {"global": float(global_mean), "type_mean": type_mean.to_dict(), "area": area_value.to_dict(),
-            "area_type": area_type_value.to_dict(), "sales": g["count"].to_dict()}
-
-
-def features(d: pd.DataFrame, enc: dict) -> pd.DataFrame:
-    X = pd.DataFrame(index=d.index)
-    X["area_value"] = d.area.map(enc["area"]).fillna(enc["global"])
-    X["area_type_value"] = [enc["area_type"].get(k, enc["type_mean"][k[1]]) for k in zip(d.area, d.type)]
-    X["area_sales_log"] = np.log1p(d.area.map(enc["sales"]).fillna(0))
-    X["is_villa"] = (d.type == "Villa").astype(int)
-    X["offplan"] = d.offplan
-    X["bedrooms"] = d.bedrooms
-    X["log_sqft"] = np.log(d.sqft)
-    return X[FEATURES]
-
-
 def evaluate(pred_price, actual):
     err = np.abs(pred_price - actual) / actual
     return {"median_error": r(np.median(err), 4), "within_10": r((err <= 0.10).mean(), 3),
@@ -164,8 +138,7 @@ def build_model(sales: pd.DataFrame):
     months = sorted(sales.month.unique())
     test_months = months[-2:]                     # the two most recent months are the test set
     train, test = sales[~sales.month.isin(test_months)], sales[sales.month.isin(test_months)]
-    params = dict(max_iter=400, learning_rate=0.06, max_leaf_nodes=31, min_samples_leaf=40,
-                  l2_regularization=1.0, random_state=42)
+    params = PARAMS
 
     enc = area_encoding(train)
     model = HistGradientBoostingRegressor(**params).fit(features(train, enc), np.log(train.ppsf))
@@ -217,6 +190,7 @@ def main():
     areas = build_areas(sales)
     market = build_market(sales, areas)
     model_json, metrics = build_model(sales)
+    insights = build_insights(sales)
 
     meta = {"period": {"from": sales.date.min().strftime("%Y-%m-%d"), "to": sales.date.max().strftime("%Y-%m-%d")},
             "cleaning": {"sales": [{"step": s, "rows": n} for s, n in log]}, "model": metrics,
@@ -225,11 +199,12 @@ def main():
     (OUT / "market.json").write_text(json.dumps(market, indent=1))
     (OUT / "areas.json").write_text(json.dumps(areas, ensure_ascii=False, separators=(",", ":")))
     (OUT / "meta.json").write_text(json.dumps(meta, indent=1))
+    (OUT / "insights.json").write_text(json.dumps(insights, ensure_ascii=False, indent=1))
     (PUBLIC / "model.json").write_text(json.dumps(model_json, separators=(",", ":")))
 
     print(f"Clean sales: {len(sales):,} · areas with pages: {len(areas)} · period {meta['period']}")
     print("Model:", metrics["model"], "| Baseline:", metrics["baseline"])
-    for f in ["market.json", "areas.json", "meta.json"]:
+    for f in ["market.json", "areas.json", "meta.json", "insights.json"]:
         print(f"  {f}: {(OUT / f).stat().st_size / 1e3:.0f} KB")
     print(f"  model.json: {(PUBLIC / 'model.json').stat().st_size / 1e6:.2f} MB")
 

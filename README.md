@@ -19,6 +19,7 @@ A web platform for understanding Dubai's residential property market, built on *
 | **Rankings** | busiest, most expensive, most affordable and fastest-rising areas |
 | **122 area pages** | sales, median prices, price per sq ft vs the Dubai median, trend, prices by bedrooms with a typical range, most-sold projects, nearest metro, mall and landmark |
 | **Area comparison** | sortable, filterable table of every area |
+| **Market insights** | five questions answered like-for-like with fixed-effects regressions: is the market really falling, the off-plan premium, studio vs 1-bed price per sq ft, the size discount, and which projects sell above or below similar homes |
 | **Price estimator** | gradient-boosting model: area, type, bedrooms, size, ready/off-plan → price with a likely range |
 | **Method page** | data source, every cleaning step with row counts, model accuracy and limitations |
 
@@ -55,6 +56,7 @@ pipeline/clean.py ──► pipeline/build.py ──► src/data/generated/*.jso
 Next.js 15 (App Router, TypeScript, Tailwind) ── 130 pages pre-rendered at build time ── Vercel
 ```
 
+* **Insights (`pipeline/insights.py`):** fixed-effects regressions (one effect per area × type × bedrooms) via the within transformation, unit-tested against a full dummy-variable regression; project scores use out-of-sample predictions from GroupKFold so a project never trains its own prediction.
 * **Static-first:** every area page is generated at build time (`generateStaticParams`), so pages load instantly and hosting is free.
 * **The model runs in the browser:** the scikit-learn trees are exported to JSON and walked in TypeScript. The pipeline **asserts** the exported trees match scikit-learn exactly before writing the file.
 * **Honest testing:** time-based split (train on earlier months, test on the latest two), always compared to a simple baseline.
@@ -77,6 +79,7 @@ DLD files villas under property type *Building*, mixes `BUSINESS BAY` and `Busin
 ## Roadmap
 
 - [x] **Phase 1:** market dashboard, 122 area pages, comparison table, price estimator, method page
+- [x] **Insights:** like-for-like price index, off-plan premium, bedroom and size effects, project value scores (cross-validated by project)
 - [ ] **Phase 2:** rental data (DLD rent contracts) → **rental yield** per area and bedroom type
 - [ ] **Phase 3:** **AI assistant**: ask in plain English (“2 bedroom under AED 1.5M near a metro”) and get answers from the data, using an LLM with tool calling
 - [ ] **Phase 4:** map of areas, Arabic language (right-to-left)
