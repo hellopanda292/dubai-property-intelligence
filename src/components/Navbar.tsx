@@ -10,6 +10,7 @@ const LINKS = [
   { href: "/areas", label: "Areas" },
   { href: "/insights", label: "Insights" },
   { href: "/estimate", label: "Price estimator" },
+  { href: "/assistant", label: "AI assistant" },
   { href: "/about", label: "Method" },
 ];
 
@@ -32,7 +33,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {LINKS.map((l) => (
             <li key={l.href}>
               <Link
@@ -50,7 +51,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="grid h-10 w-10 place-items-center rounded-full bg-white text-ink ring-1 ring-ink/10 md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-full bg-white text-ink ring-1 ring-ink/10 lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -61,7 +62,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <ul id="mobile-nav" className="container-app grid gap-1 pb-4 md:hidden">
+        <ul id="mobile-nav" className="container-app grid gap-1 pb-4 lg:hidden">
           {LINKS.map((l) => (
             <li key={l.href}>
               <Link

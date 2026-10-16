@@ -6,37 +6,10 @@ import { useEffect, useMemo, useState } from "react";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 import type { AreaIndexItem } from "@/lib/data";
 import { aed, aedShort } from "@/lib/format";
+import { estimatePpsf, roundPrice, SQM_TO_SQFT, type PriceModel } from "@/lib/predict";
 import type { PropertyType } from "@/lib/types";
 
-/*
- * The model is a gradient-boosting regressor trained in Python (pipeline/build.py) and exported
- * as plain JSON: each tree is a list of nodes. predictLogPpsf walks every tree and adds up the
- * leaf values, exactly like scikit-learn does (the pipeline asserts this).
- */
-interface Tree { f: number[]; t: number[]; l: number[]; r: number[]; v: number[]; leaf: number[] }
-interface Model {
-  baseline: number;
-  trees: Tree[];
-  band: { low: number; high: number };
-  type_value: Record<PropertyType, number>;
-  global_value: number;
-  areas: Record<string, { value: number; sales_log: number; types: Partial<Record<PropertyType, number>> }>;
-}
-
-const SQM_TO_SQFT = 10.7639;
 const LIMITS = { Flat: { min: 200, max: 6000, beds: [0, 1, 2, 3, 4, 5, 6], size: 750, bed: 1 }, Villa: { min: 700, max: 20000, beds: [1, 2, 3, 4, 5, 6, 7], size: 2500, bed: 4 } };
-
-function predictLogPpsf(model: Model, x: number[]) {
-  let total = model.baseline;
-  for (const tree of model.trees) {
-    let i = 0;
-    while (!tree.leaf[i]) i = x[tree.f[i]] <= tree.t[i] ? tree.l[i] : tree.r[i];
-    total += tree.v[i];
-  }
-  return total;
-}
-
-const roundPrice = (n: number) => (n >= 1e6 ? Math.round(n / 10000) * 10000 : Math.round(n / 1000) * 1000);
 
 function Segmented<T extends string | number>({ name, value, options, onChange }: { name: string; value: T; options: [T, string][]; onChange: (v: T) => void }) {
   return (
@@ -55,7 +28,7 @@ function Segmented<T extends string | number>({ name, value, options, onChange }
 
 export function Estimator({ areas, medians }: { areas: AreaIndexItem[]; medians: Record<string, Partial<Record<PropertyType, { median_ppsf: number; sales: number }>>> }) {
   const params = useSearchParams();
-  const [model, setModel] = useState<Model | null>(null);
+  const [model, setModel] = useState<PriceModel | null>(null);
   const [error, setError] = useState(false);
   const initialArea = areas.find((a) => a.slug === params.get("area"))?.name ?? "Jumeirah Village Circle";
   const [area, setArea] = useState(initialArea);
@@ -76,11 +49,8 @@ export function Estimator({ areas, medians }: { areas: AreaIndexItem[]; medians:
 
   const result = useMemo(() => {
     if (!model || !valid) return null;
-    const enc = model.areas[area];
-    if (!enc) return null;
-    const x = [enc.value, enc.types[type] ?? model.type_value[type], enc.sales_log, type === "Villa" ? 1 : 0, offplan, beds, Math.log(sqft)];
-    const ppsf = Math.exp(predictLogPpsf(model, x));
-    return { ppsf, price: ppsf * sqft };
+    const ppsf = estimatePpsf(model, { area, type, bedrooms: beds, sqft, offplan: offplan === 1 });
+    return ppsf === null ? null : { ppsf, price: ppsf * sqft };
   }, [model, valid, area, type, offplan, beds, sqft]);
 
   const typical = medians[area]?.[type];

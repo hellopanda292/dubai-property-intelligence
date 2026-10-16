@@ -1,6 +1,6 @@
 # Dubai Property Intelligence 🏙️
 
-A web platform for understanding Dubai's residential property market, built on **official Dubai Land Department (DLD) data**: market dashboard, a page for every area, and a machine-learning price estimator.
+A web platform for understanding Dubai's residential property market, built on **official Dubai Land Department (DLD) data**: market dashboard, a page for every area, a machine-learning price estimator, and an **AI assistant** that answers questions by calling tools over the data.
 
 **🔗 Live:** https://dubai-property-iq.vercel.app
 **👤 Portfolio:** https://priyanshu-zihowa.vercel.app
@@ -21,6 +21,7 @@ A web platform for understanding Dubai's residential property market, built on *
 | **Area comparison** | sortable, filterable table of every area |
 | **Market insights** | five questions answered like-for-like with fixed-effects regressions: is the market really falling, the off-plan premium, studio vs 1-bed price per sq ft, the size discount, and which projects sell above or below similar homes |
 | **Price estimator** | gradient-boosting model: area, type, bedrooms, size, ready/off-plan → price with a likely range |
+| **AI assistant** | ask in plain language (“2 bedroom under AED 1.5M near a metro”); a Gemini agent calls six tools over the data and explains the result, listing every lookup it used |
 | **Method page** | data source, every cleaning step with row counts, model accuracy and limitations |
 
 ![An area page](docs/area-page.png)
@@ -61,6 +62,21 @@ Next.js 15 (App Router, TypeScript, Tailwind) ── 130 pages pre-rendered at b
 * **The model runs in the browser:** the scikit-learn trees are exported to JSON and walked in TypeScript. The pipeline **asserts** the exported trees match scikit-learn exactly before writing the file.
 * **Honest testing:** time-based split (train on earlier months, test on the latest two), always compared to a simple baseline.
 
+## AI assistant
+
+A tool-calling agent (`src/lib/assistant/`), written on the Gemini REST API without an SDK:
+
+* **The language model never invents numbers.** It chooses tools and their arguments; the tools are plain TypeScript functions over the same generated data as the website (`search_areas`, `get_area`, `compare_areas`, `estimate_price`, `market_overview`, `value_projects`). The model then writes the answer from the tool results.
+* **Everyday names work:** JVC, Downtown, Marina or a project name like "Azizi Venice" map to DLD's official area names; ambiguous names ("Jumeirah") return choices instead of a guess.
+* **Guardrails in the prompt:** no buy/sell advice, says plainly when the data can't answer (rents, other emirates, mortgages), notes that DLD's "nearest metro" is a recorded field, not a distance.
+* **Reliability:** the server asks Google which Flash models the key can use and falls back to the next one when a model is busy, out of free quota or slow (12 s per call). A per-visitor rate limit protects the free quota. The API key lives only in Vercel's environment variables.
+
+### Evaluation
+
+`eval/run.ts` asks 20 test questions to the live API and checks three things for each: the right tool was used, the answer contains what it must, and **every AED amount and percentage in the answer can be traced to a number in the tool results**. The tools are deterministic, so the script re-runs them with the agent's own arguments and matches the numbers (allowing for the rounding shown, such as AED 1.2M).
+
+_The first full run is scheduled after the free Gemini quota resets; results will be in `eval/results.md`._
+
 ## Data cleaning
 
 | Step | Rows |
@@ -81,7 +97,7 @@ DLD files villas under property type *Building*, mixes `BUSINESS BAY` and `Busin
 - [x] **Phase 1:** market dashboard, 122 area pages, comparison table, price estimator, method page
 - [x] **Insights:** like-for-like price index, off-plan premium, bedroom and size effects, project value scores (cross-validated by project)
 - [ ] **Phase 2:** rental data (DLD rent contracts) → **rental yield** per area and bedroom type
-- [ ] **Phase 3:** **AI assistant**: ask in plain English (“2 bedroom under AED 1.5M near a metro”) and get answers from the data, using an LLM with tool calling
+- [x] **Phase 3:** **AI assistant**: Gemini agent with six data tools, number-grounding evaluation
 - [ ] **Phase 4:** map of areas, Arabic language (right-to-left)
 - [ ] Later: automatic monthly data refresh, more features in the model, price alerts
 
@@ -104,7 +120,7 @@ python pipeline/build.py
 python -m unittest discover -s pipeline
 ```
 
-3. Run the website:
+3. Run the website. For the AI assistant, create a free key in [Google AI Studio](https://aistudio.google.com/apikey) and put it in `.env.local` as `GEMINI_API_KEY=...` (never commit it):
 
 ```bash
 npm install
@@ -115,7 +131,7 @@ npm run dev
 ```
 
 ## Tech
-Python · pandas · scikit-learn · Next.js 15 · React 19 · TypeScript · Tailwind CSS 4 · Recharts · Vercel
+Python · pandas · scikit-learn · Gemini API (function calling) · Next.js 15 · React 19 · TypeScript · Tailwind CSS 4 · Recharts · Vercel
 
 ## Credits
 * Data: **Dubai Land Department**, [Real Estate Data](https://dubailand.gov.ae/en/open-data/real-estate-data/) (open data). An independent student project, not affiliated with DLD. Figures are statistics of past sales, not valuations or financial advice.

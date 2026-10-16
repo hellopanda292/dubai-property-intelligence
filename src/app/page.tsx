@@ -154,13 +154,16 @@ export default function HomePage() {
           <h3 className="mt-4 flex items-center gap-2 font-display text-xl font-bold">Rental yields <Badge tone="brand">Coming soon</Badge></h3>
           <p className="mt-1.5 text-sm text-ink-soft">Which areas give the best rent for the price? Combining DLD rent contracts with sale prices.</p>
         </div>
-        <div className="card p-6">
+        <Link href="/assistant" className="card group p-6 transition hover:-translate-y-0.5">
           <span className="grid h-11 w-11 place-items-center rounded-xl bg-[linear-gradient(135deg,#d63c8f,#7a4dff)] text-white">
             <Bot className="h-5 w-5" aria-hidden="true" />
           </span>
-          <h3 className="mt-4 flex items-center gap-2 font-display text-xl font-bold">AI assistant <Badge tone="brand">Coming soon</Badge></h3>
-          <p className="mt-1.5 text-sm text-ink-soft">Ask in plain English, e.g. “2 bedroom under AED 1.5M near a metro”, and get answers from the real data.</p>
-        </div>
+          <h3 className="mt-4 flex items-center gap-2 font-display text-xl font-bold">AI assistant <Badge tone="brand">New</Badge></h3>
+          <p className="mt-1.5 text-sm text-ink-soft">Ask in plain English, e.g. “2 bedroom under AED 1.5M near a metro”, and get answers worked out from the real data.</p>
+          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-violet">
+            Ask a question <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </Link>
       </section>
     </>
   );
